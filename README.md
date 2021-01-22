@@ -5,4 +5,4 @@ Warnings:
 
 constant_polyMesh_faces.rar file has to be added to /constant/polyMesh/ directory after unzipping to an ascii text file (the file was to heavy to push it directly to GitHub)
 
-createPatchDict can be used to merge two contact regions into one patch by adding the file to /system/ directory and running in the console
+createPatchDict can be used to merge two contact regions into one patch by adding the file to /system/ directory and running it in the console
