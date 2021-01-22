@@ -1,0 +1,188 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Do a synchronisation of coupled points after creation of any patches.
+// Note: this does not work with points that are on multiple coupled patches
+//       with transformations (i.e. cyclics).
+pointSync false;
+
+// Patches to create.
+patches
+(
+    {
+        // Name of new patch
+        name symmetry1;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type symmetryPlane;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (symmetry_1-driver symmetry_1-driven);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name symmetry2;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type symmetryPlane;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (symmetry_2-driver symmetry_2-driven);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name wall;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (wall-driver wall-driven);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name contact_region;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type patch;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (contact_region-src contact_region-trg);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name contact_region_2;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type patch;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (contact_region_2-src contact_region_2-trg);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name contact_region_3;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type patch;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (contact_region_3-src contact_region_3-trg);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name contact_region_4;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type patch;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (contact_region_4-src contact_region_4-trg);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+    {
+        // Name of new patch
+        name contact_region_5;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type patch;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (contact_region_5-src contact_region_5-trg);
+
+        // If constructFrom = set : name of faceSet
+        set f0;
+    }
+
+);
+
+// ************************************************************************* //

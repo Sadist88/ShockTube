@@ -1,0 +1,154 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+16
+(
+    symmetry_1-driver
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          12900;
+        startFace       1311921;
+    }
+    symmetry_1-driven
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          24000;
+        startFace       1324821;
+    }
+    symmetry_2-driver
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          12900;
+        startFace       1348821;
+    }
+    symmetry_2-driven
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          24000;
+        startFace       1361721;
+    }
+    wall-driver
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          6470;
+        startFace       1385721;
+    }
+    wall-driven
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          21823;
+        startFace       1392191;
+    }
+    contact_region-src
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region-trg;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          5400;
+        startFace       1414014;
+    }
+    contact_region-trg
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region-src;
+ 	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          5400;
+        startFace       1419414;
+    }
+    contact_region_2-src
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_2-trg;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          5400;
+        startFace       1424814;
+    }
+    contact_region_2-trg
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_2-src;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          5400;
+        startFace       1430214;
+    }
+    contact_region_3-src
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_3-trg;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          62;
+        startFace       1435614;
+    }
+    contact_region_3-trg
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_3-src;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          43;
+        startFace       1435676;
+    }
+    contact_region_4-src
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_4-trg;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          180;
+        startFace       1435719;
+    }
+    contact_region_4-trg
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_4-src;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          180;
+        startFace       1435899;
+    }
+    contact_region_5-src
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_5-trg;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          21600;
+        startFace       1436079;
+    }
+    contact_region_5-trg
+    {
+        type            cyclicAMI;
+	neighbourPatch	contact_region_5-src;
+	matchTolerance	1e-04;
+	transform	noOrdering;
+        nFaces          16800;
+        startFace       1457679;
+    }
+)
+
+// ************************************************************************* //
